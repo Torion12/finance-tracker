@@ -1,7 +1,10 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import Dashboard, { dashBoardLoader } from "./pages/Dashboard";
+import Dashboard, {
+  dashBoardLoader,
+  dashBoardLoaderAction,
+} from "./pages/Dashboard";
 import Main, { mainLoader } from "./layouts/Main";
-import ErrorPage from "./pages/404";
+import { ErrorPage } from "./pages/404";
 import { logout } from "./actions/logout";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -17,6 +20,7 @@ const router = createBrowserRouter([
         index: true,
         element: <Dashboard />,
         loader: dashBoardLoader,
+        action: dashBoardLoaderAction,
         errorElement: <ErrorPage />,
       },
       {
@@ -30,8 +34,8 @@ const router = createBrowserRouter([
 const App = () => {
   return (
     <>
-      <RouterProvider router={router} />;
-      <ToastContainer />;
+      <RouterProvider router={router} />
+      <ToastContainer />
     </>
   );
 };
