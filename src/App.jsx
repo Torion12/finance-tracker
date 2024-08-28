@@ -3,6 +3,8 @@ import Dashboard, { dashBoardLoader } from "./pages/Dashboard";
 import Main, { mainLoader } from "./layouts/Main";
 import ErrorPage from "./pages/404";
 import { logout } from "./actions/logout";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const router = createBrowserRouter([
   {
@@ -19,14 +21,19 @@ const router = createBrowserRouter([
       },
       {
         path: "logout",
-        action: logout
+        action: logout,
       },
     ],
   },
 ]);
 
 const App = () => {
-  return <RouterProvider router={router} />;
+  return (
+    <>
+      <RouterProvider router={router} />;
+      <ToastContainer />;
+    </>
+  );
 };
 
 export default App;
