@@ -7,6 +7,10 @@ export async function logout() {
     key: "userName",
   });
 
+  deleteUser({
+    key: "budgets",
+  });
+
   toast.success("Account Delete!");
 
   return redirect("/");
